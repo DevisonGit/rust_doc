@@ -2,9 +2,22 @@ fn main() {
     let mut s = String::from("hello world");
 
     let word = first_word(&s);
+    println!("{word}");
     s.clear();
 
+
     slices();
+
+    println!();
+    let s = String::from("VAI Cortinas");
+    let new_word = first_world_slice(&s);
+    println!("{new_word}");
+
+
+    let a = [1,2,3,4,5];
+    let slice = &a[1..3];
+    assert_eq!(slice, &[2,3]);
+
 }
 
 fn first_word(s: &String) -> usize {
@@ -48,3 +61,13 @@ fn slices() {
 
 }
 
+fn first_world_slice(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate(){
+        if item == b' '{
+            return &s[0..i];
+        }
+    }
+    &s[..]
+}
