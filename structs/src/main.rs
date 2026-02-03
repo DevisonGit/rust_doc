@@ -25,7 +25,28 @@ fn main() {
     // criando uma funçao que retorna uma struct
     println!();
     let mut user3 = build_user(String::from("user3"), String::from("user3@example.com"));
-    println!("{}", user3.email)
+    user3.email = String::from("change@example.com");
+    println!("{}", user3.email);
+
+    // atalho para inicilização de campo
+    println!();
+    let user4 = build_user_shorthand(String::from("shorthand@example.com"), String::from("shorthand"));
+    println!("{}", user4.email);
+
+    // sintaxe de atualização
+    let user5 = User {
+        email: String::from("another@example.com"),
+        ..user1
+    };
+    println!("{}", user5.username);
+
+    // diferentes tipos com estrutura de tuplas
+    let black = Color(0,0,0);
+    let origin = Point(0,0,0);
+
+    // struct trait
+    let subject = AlwaysEqual;
+
 
 }
 
@@ -44,3 +65,17 @@ fn build_user(email: String, username: String) -> User {
         sign_in_count: 1,
     }
 }
+
+fn build_user_shorthand( email: String, username: String) -> User {
+    User {
+        active: true,
+        username,
+        email,
+        sign_in_count: 1,
+    }    
+} 
+
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+struct AlwaysEqual;
