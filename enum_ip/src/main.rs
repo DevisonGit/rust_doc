@@ -23,7 +23,6 @@ enum Message {
 // metodo de um enum
 impl Message {
     fn call(&self) {
-
     }
 }
 
@@ -44,7 +43,12 @@ fn main() {
     let home_v2 = IpAddrV2::V4(127, 0, 0, 1);
     let loopback_v2 = IpAddrV2::V6(String::from("::1"));
 
-    // 
     let m = Message::Write(String::from("Hello"));
     m.call();
+
+    // enum option
+    let some_number = Some(5);
+    let some_char = Some('e');
+    let absent_number: Option<i32> = None;
+    
 }
