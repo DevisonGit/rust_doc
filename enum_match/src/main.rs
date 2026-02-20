@@ -33,7 +33,15 @@ fn main() {
     let six = plus_one(five);
     println!("the value of six is: {six:?}");
     let none = plus_one(None);
-    println!("the value of variable none: {none:?}")
+    println!("the value of variable none: {none:?}");
+
+    // padrões abrangentes
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        9 => remove_fancy_hat(),
+        other => move_player(other),
+    }
 }
 
 
@@ -44,3 +52,6 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
     }
 }
 
+fn add_fancy_hat() {}
+fn remove_fancy_hat() {}
+fn move_player(num_spaces: u8){}
