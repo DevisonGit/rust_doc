@@ -42,6 +42,18 @@ fn main() {
         9 => remove_fancy_hat(),
         other => move_player(other),
     }
+
+    // fluxo if let
+    let config_max = Some(3u8);
+    match config_max {
+        Some(max) => println!("The maximum is configured to be {max}"),
+        _ => (),
+    }
+
+    if let Some(max) = config_max {
+        println!("The maximum is configured to be {max}")
+    }
+
 }
 
 
